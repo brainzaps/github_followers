@@ -22,7 +22,13 @@ class SearchViewController: UIViewController {
     configureLogoImageView()
     configureTextField()
     configureButton()
+    createDismissKeyboardTapGesture()
     
+  }
+  
+  func createDismissKeyboardTapGesture() {
+    let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+    view.addGestureRecognizer(tap)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +52,8 @@ class SearchViewController: UIViewController {
   func configureTextField() {
     view.addSubview(usernameTextField)
     
+    usernameTextField.delegate = self
+    
     NSLayoutConstraint.activate([
       usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
       usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -58,6 +66,9 @@ class SearchViewController: UIViewController {
     view.addSubview(callToActionButton)
     
     
+    callToActionButton.addTarget(self, action: #selector(pushFollowerViewController), for: .touchUpInside)
+    
+    
     NSLayoutConstraint.activate([
       callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
       callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -67,15 +78,19 @@ class SearchViewController: UIViewController {
     
   }
   
+  @objc func pushFollowerViewController() {
+    let followerListController = FollowerViewController()
+    followerListController.username = usernameTextField.text
+    followerListController.title = usernameTextField.text
+    navigationController?.pushViewController(followerListController, animated: true )
+  }
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
+}
+
+extension SearchViewController: UITextFieldDelegate {
   
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    pushFollowerViewController()
+    return true
+  }
 }
