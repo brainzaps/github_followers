@@ -8,24 +8,26 @@
 import UIKit
 
 class FollowerViewController: UIViewController {
-  
-  var username: String?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    view.backgroundColor = .systemBackground
-    navigationController?.isNavigationBarHidden = false
-    navigationController?.navigationBar.prefersLargeTitles = true
+	
+	var username: String?
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		view.backgroundColor = .systemBackground
+		navigationController?.isNavigationBarHidden = false
+		navigationController?.navigationBar.prefersLargeTitles = true
 		
 		
-		NetworkManager.shared.getFollowers(for: username ?? "", page: 0) { result, error in
-			guard let followers = result else {
-				self.presentGFAlertOnMainThread(title: "Error", message: error?.rawValue ?? "", buttonTitle: "Ok")
-				return
-			}
+		NetworkManager.shared.getFollowers(for: username ?? "", page: 0) { result  in
 			
-			print(followers)
+			switch result {
+			case .success(let followers):
+				
+				print(followers)
+			case .failure(let error):
+				self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "Ok")
+			}
 		}
-  }
+	}
 }
