@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62365742B5F544100DD8473 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62365732B5F544100DD8473 /* ErrorMessage.swift */; };
 		C64874F12B5DD7820079F03D /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64874F02B5DD7820079F03D /* FollowerViewController.swift */; };
 		C64874F32B5DE17E0079F03D /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64874F22B5DE17E0079F03D /* GFTitleLabel.swift */; };
 		C64874F52B5DE89B0079F03D /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64874F42B5DE89B0079F03D /* GFBodyLabel.swift */; };
@@ -14,6 +15,7 @@
 		C64874FA2B5DFCC10079F03D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64874F92B5DFCC10079F03D /* UIViewController+Ext.swift */; };
 		C67434CA2B5F411500B34165 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67434C92B5F411500B34165 /* Follower.swift */; };
 		C67434CC2B5F41EF00B34165 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67434CB2B5F41EF00B34165 /* User.swift */; };
+		C67434CF2B5F471600B34165 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67434CE2B5F471600B34165 /* NetworkManager.swift */; };
 		C6F8615B2B5C90D700A6CCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F8615A2B5C90D700A6CCAF /* AppDelegate.swift */; };
 		C6F8615D2B5C90D700A6CCAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F8615C2B5C90D700A6CCAF /* SceneDelegate.swift */; };
 		C6F861642B5C90D900A6CCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F861632B5C90D900A6CCAF /* Assets.xcassets */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C62365732B5F544100DD8473 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		C64874F02B5DD7820079F03D /* FollowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
 		C64874F22B5DE17E0079F03D /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		C64874F42B5DE89B0079F03D /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		C64874F92B5DFCC10079F03D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		C67434C92B5F411500B34165 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		C67434CB2B5F41EF00B34165 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C67434CE2B5F471600B34165 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C6F861572B5C90D700A6CCAF /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F8615A2B5C90D700A6CCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6F8615C2B5C90D700A6CCAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C67434CD2B5F470000B34165 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C67434CE2B5F471600B34165 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C67434D02B5F53F500B34165 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C62365732B5F544100DD8473 /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C6F8614E2B5C90D700A6CCAF = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +121,8 @@
 		C6F861592B5C90D700A6CCAF /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				C67434D02B5F53F500B34165 /* Utilities */,
+				C67434CD2B5F470000B34165 /* Managers */,
 				C67434C82B5F40FB00B34165 /* Model */,
 				C67434C72B5F3F9F00B34165 /* Screens */,
 				C6F861742B5CAE1F00A6CCAF /* Views */,
@@ -203,9 +225,11 @@
 				C64874FA2B5DFCC10079F03D /* UIViewController+Ext.swift in Sources */,
 				C6F861762B5CAE4E00A6CCAF /* GFButton.swift in Sources */,
 				C6F8616F2B5CA1EC00A6CCAF /* SearchViewController.swift in Sources */,
+				C62365742B5F544100DD8473 /* ErrorMessage.swift in Sources */,
 				C64874F52B5DE89B0079F03D /* GFBodyLabel.swift in Sources */,
 				C67434CA2B5F411500B34165 /* Follower.swift in Sources */,
 				C64874F32B5DE17E0079F03D /* GFTitleLabel.swift in Sources */,
+				C67434CF2B5F471600B34165 /* NetworkManager.swift in Sources */,
 				C6F8615B2B5C90D700A6CCAF /* AppDelegate.swift in Sources */,
 				C6F8615D2B5C90D700A6CCAF /* SceneDelegate.swift in Sources */,
 				C64874F12B5DD7820079F03D /* FollowerViewController.swift in Sources */,

@@ -17,5 +17,15 @@ class FollowerViewController: UIViewController {
     view.backgroundColor = .systemBackground
     navigationController?.isNavigationBarHidden = false
     navigationController?.navigationBar.prefersLargeTitles = true
+		
+		
+		NetworkManager.shared.getFollowers(for: username ?? "", page: 0) { result, error in
+			guard let followers = result else {
+				self.presentGFAlertOnMainThread(title: "Error", message: error?.rawValue ?? "", buttonTitle: "Ok")
+				return
+			}
+			
+			print(followers)
+		}
   }
 }
